@@ -1,0 +1,82 @@
+.c_materia {
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    min-width: 640px;
+    width: fit-content;
+}
+
+.sc_general {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    align-items: center;
+
+    padding: 0 20px;
+}
+
+.sc_materia {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.in_general {
+    padding: 5px 10px;
+}
+
+.in_selection {
+    width: 100%;
+}
+
+.bt_agregar {
+    margin: 10px 20px;
+    padding: 10px 10px;
+}
+
+.c_title {
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.bt_clean {
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    background: none;
+    justify-self: right;
+}
+
+.bt_clean:hover {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.c_select {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bt_select {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

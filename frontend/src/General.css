@@ -1,0 +1,41 @@
+.bold{
+    font-weight: bold;
+}
+
+.font-32{
+    font-size: 32px;
+}
+
+.font-20{
+    font-size: 20px;
+}
+
+.font-18{
+    font-size: 18px;
+}
+
+.font-16{
+    font-size: 16px;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.jost-400 {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jost-600 {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}

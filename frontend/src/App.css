@@ -1,0 +1,65 @@
+.c_added, .c_results{
+    padding: 20px;
+}
+
+.c_results{
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 10px 20px;
+}
+
+.c_everything{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.c_selected{
+    width: fit-content;
+}
+
+.c_subject{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px;
+}
+
+.bt_delete, .bt_recommend{
+    padding: 10px 20px;
+}
+
+.tx_state{
+    text-align: center;
+    padding: 10px;
+}
+
+.red{
+    color: #F00;
+}
+
+.bt_togglemode{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
