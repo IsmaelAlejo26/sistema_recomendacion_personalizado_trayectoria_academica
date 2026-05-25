@@ -125,15 +125,17 @@ function App() {
       </button>
       <div className='c_everything'>
         <div className='c_selected'>
-          <Subject
-            onSelectSubject={handleSelectSubject}
-            onCleanAll={handleCleanAll}
-            onVoidSelect={handleVoidSelected}
-          />
-          <p className={`no-margin ${error !== "" ? 'red' : 'green'} font-18 jost-400 tx_state`}>{message}</p>
+          <div className='c_subjectSelected'>
+            <Subject
+              onSelectSubject={handleSelectSubject}
+              onCleanAll={handleCleanAll}
+              onVoidSelect={handleVoidSelected}
+            />
+            <p className={`no-margin ${error !== "" ? 'red' : 'green'} font-18 jost-400 tx_state`}>{message}</p>
+          </div>
           <div className='c_added'>
             {/* Nada más cuenta las materias que se han agregado */}
-            <p className='font-20 jost-600'>Materias agregadas: {count}</p>
+            <p className='font-20 jost-600'>Materias con mal rendimiento: {count}</p>
             {/* AQUI SE AGREGAN LAS MATERIAS SELECCIONADAS */}
             {currentSubjects.length === 0 ? (
               <span className='font-18 jost-400'> No hay ninguna materia agregada. </span>

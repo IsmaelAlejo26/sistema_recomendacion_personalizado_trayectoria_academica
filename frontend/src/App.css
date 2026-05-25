@@ -1,5 +1,5 @@
 .c_added, .c_results{
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .c_results{
@@ -16,12 +16,15 @@
 
 .c_everything{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     gap: 20px;
 }
 
 .c_selected{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: fit-content;
+    height: fit-content;
 }
 
 .c_subject{
