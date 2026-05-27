@@ -246,7 +246,7 @@ function App() {
         <div div className='c_results'>
           {loading ? (
             <>
-              <img src="public/carga_gid.gif" className='img_carga' />
+              <img src="public/carga_gid.gif" className='img_carga' width={60} height={60} />
               {/*<p className='font-20 jost-600'>Cargando...</p>*/}
             </>
           ) : (
