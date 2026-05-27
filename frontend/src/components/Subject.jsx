@@ -1,15 +1,26 @@
 import subjects from '../subjects'
+import skills from '../skills';
 import { useEffect, useState } from 'react';
 import './Subject.css';
 import '../General.css'
 
-export default function Subject({ onSelectSubject, onCleanAll, onVoidSelect }) {
+export default function Subject({ 
+    onSelectSubject,
+    onSelectSkill, 
+    onShowRecommendatios, 
+    onCleanAll, 
+    onVoidSubjectSelect, 
+    onVoidSkillSelect }) {
     const [currentSubjects, setSubjects] = useState(subjects[0].subjects);
-    const [subject, setSubject] = useState(""); // La materia a mandar
     const [currentSemester, setSemester] = useState(1);
-    const [habilities, setHabilities] = useState([]);
-    const [objectives, setObjectives] = useState("");
+    const [subject, setSubject] = useState(""); // La materia a mandar
+    const [skill, setSkill] = useState(""); // Las habilidades en texto
+    const [objectives, setObjectives] = useState(""); // Los objetivos en texto
     // const selectedSubjects = [];
+    // Para errores
+    // const [errorSkill, setErrorSkill] = useState("");
+    // const [errorSubject, setErrorSubject] = useState("");
+    // const [errorObjective, setErrorObjective] = useState("");
 
     // Cada que cambie el semestre, cambian las materias
     // console.log(subjects);
@@ -28,11 +39,29 @@ export default function Subject({ onSelectSubject, onCleanAll, onVoidSelect }) {
         // console.log("dasdasdasdasd");
         if (subjectSelect !== '-' && subjectSelect !== "") {
             onSelectSubject(subjectSelect);
-            setSubject("");
+            setSubject("-");
             return;
         }
         // No se seleccionó un valor
-        onVoidSelect();
+        onVoidSubjectSelect();
+        // setErrorSubject("Selecciona una materia");
+    }
+
+    const sendSkill = (skillSelect) => {
+        if (skillSelect !== '-' && skillSelect !== "") {
+            onSelectSkill(skillSelect);
+            setSkill("-");
+            // setErrorSkill("");
+            return;
+        }
+        // No se seleccionó un valor
+        onVoidSkillSelect();
+        // setErrorSkill("Selecciona una habilidad");
+    }
+
+    const onClean = () => {
+        setObjectives("");
+        onCleanAll();
     }
 
     /**
@@ -53,18 +82,35 @@ export default function Subject({ onSelectSubject, onCleanAll, onVoidSelect }) {
                 <button
                     type='button'
                     className='jost-400 font-18 bt_clean'
-                    onClick={() => onCleanAll()}>Limpiar todo</button>
+                    onClick={() => onClean()}>Limpiar todo</button>
             </div>
             <section className='sc_objectives no-margin'>
-                <span className='jost-400 font-20'>Escribe tus Habilidades: </span>
-                <textarea 
-                className='ta_objectives no-margin font-16 jost-400'
-                name="ta-objectives" id="" 
-                placeholder='Ej. Pensamiento crítico, programar, matemáticas...'
-                rows={5}></textarea>
+                <span className='jost-400 font-28'>Habilidades: </span>
+                <span className='jost-400 font-16'>¿Con qué habilidades cuentas?</span>
+                <select
+                    value={skill}
+                    name="selSub" id=""
+                    onChange={(e) => setSkill(e.target.value)}
+                    className='jost-400 font-18 in_general in_selection'>
+                    <option
+                        value="-"
+                        className='jost-400 font-16 in_general'> -- Selecciona una opción --</option>
+                    {skills && skills.map((sk) => (
+                        <option
+                            key={sk}
+                            value={sk}
+                            className='jost-400 font-16 in_general'>{sk}</option>
+                    ))}
+                </select>
+                <button
+                    type='button'
+                    onClick={() => sendSkill(skill)}
+                    className='jost-400 font-18 bt_agregar'
+                > + Agregar habilidad </button>
             </section>
             <section className='sc_selectSemester sc_general'>
-                <span className='jost-400 font-20'>Materias con mal rendimiento: </span>
+                <span className='jost-400 font-28'>Materias: </span>
+                <span className='jost-400 font-16'>¿En qué materias encuentras dificultades?</span>
                 <div className='c_selectSemester'>
                     <span className='jost-400 font-20'>Selecciona el semestre de la materia:</span>
                     <div className='c_select'>
@@ -92,7 +138,7 @@ export default function Subject({ onSelectSubject, onCleanAll, onVoidSelect }) {
                     value={subject}
                     name="selSub" id=""
                     onChange={(e) => setSubject(e.target.value)}
-                    className='jost-400 font-16 in_general in_selection'>
+                    className='jost-400 font-18 in_general in_selection'>
                     <option
                         value="-"
                         className='jost-400 font-16 in_general'> -- Selecciona una opción --</option>
@@ -111,12 +157,20 @@ export default function Subject({ onSelectSubject, onCleanAll, onVoidSelect }) {
             > + Agregar materia </button>
             <section className='sc_objectives no-margin'>
                 <span className='jost-400 font-20'>Escribe tus metas profesionales: </span>
-                <textarea 
-                className='ta_objectives no-margin font-16 jost-400' 
-                name="ta-objectives" id="" 
-                placeholder='Ej. Mi meta profesional es ser un gran programador...'
-                rows={5}></textarea>
+                <span className='jost-400 font-16'>Texto mínimo de 30 letras. Máx. ~300 letras</span>
+                <textarea
+                    value={objectives}
+                    onChange={(e) => setObjectives(e.target.value)}
+                    className='ta_objectives no-margin font-16 jost-400'
+                    name="ta-objectives" id=""
+                    placeholder='Ej. Mi meta profesional es ser un gran programador...'
+                    rows={5}
+                    maxLength={300}></textarea>
             </section>
+            <button
+                type='button'
+                className='font-20 jost-400 bt_recommend'
+                onClick={() => onShowRecommendatios(objectives)}>Ver recomendaciones</button>
         </div>
     );
 }

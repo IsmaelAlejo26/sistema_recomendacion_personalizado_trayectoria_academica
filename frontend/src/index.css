@@ -11,8 +11,10 @@
   --bg-title: #EEEEEC;
   --br-input: #322E46;
   --br-content: #c9c9c9;
+  --br-recommendation: 1px dashed #322E46;
   --green: green;
   --url: blue;
+  --box-textarea: rgba(0, 0, 0, 0.2) 0px 0px 15px;
 }
 
 :root.dark {
@@ -25,14 +27,17 @@
   --bg-title: #1D2025;
   --bg-content: #2C3033;
   --br-input: #7F8386;
+  --br-recommendation: 1px dashed #7F8386;
   --br-content: #3d3d3d;
   --green: #0F0;
   --url: #FFF;
+  --box-textarea: rgba(165, 165, 165, 0.2) 0px 0px 15px;
 }
 
 body {
   background-color: var(--bg);
   margin: 30px;
+  transition: 0.3s ease;
 }
 
 h1,
@@ -43,8 +48,10 @@ span,
 p,
 input,
 select,
-option {
+option,
+textarea {
   color: var(--text);
+  transition: 0.3s ease;
 }
 
 input {
@@ -55,10 +62,15 @@ input {
 
 button {
   color: var(--text-button);
+  transition: 0.3s ease;
 }
 
 .green{
     color: var(--green);
+}
+
+.red{
+    color: #F00;
 }
 
 .tx_url{
@@ -125,7 +137,46 @@ select:hover {
 }
 
 .ta_objectives{
-  color: var(--text-button);
+  color: var(--text);
   background-color: var(--bg-select);
   border: 1px solid var(--br-input);
+  transition: 0.3s ease;
+}
+
+.ta_objectives:focus{
+  transition: 0.3s ease;
+  outline: none;
+  box-shadow: var(--box-textarea)
+}
+
+.c_recommendation{
+  border: var(--br-recommendation);
+}
+
+/* RESPONSIVIDAD */
+/* Teléfonos pequeños */
+@media (max-width: 480px) {
+  body{
+    background-color: #0F0;
+  }
+}
+
+/* Teléfonos */
+@media (max-width: 768px) {
+
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+}
+
+/* Laptops */
+@media (max-width: 1280px) {
+
+}
+
+/* Pantallas grandes */
+@media (min-width: 1281px) {
+
 }

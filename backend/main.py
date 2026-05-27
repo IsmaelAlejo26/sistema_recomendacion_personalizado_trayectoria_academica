@@ -14,10 +14,16 @@ app.add_middleware(
 
 class SubjectsRequest(BaseModel):
     subjects: list[str]
+    skills: list[str]
+    goals: str
 
 @app.post("/recommendations")
 def recommendations(request: SubjectsRequest):
     if not request.subjects:
         raise HTTPException(status_code=400, detail="No se mandaron materias.")
-    result = get_recommendations(request.subjects)
+    if not request.skills:
+        raise HTTPException(status_code=400, detail="No se mandaron habilidades.")
+    if not request.goals.strip():
+        raise HTTPException(status_code=400, detail="No se mandaron metas profesionales.")
+    result = get_recommendations(request.subjects, request.skills, request.goals)
     return result

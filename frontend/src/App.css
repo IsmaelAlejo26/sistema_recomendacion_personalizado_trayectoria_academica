@@ -2,6 +2,12 @@
     padding: 0 20px;
 }
 
+.c_added{
+    height: fit-content;
+    position: sticky;
+    top: 10px;
+}
+
 .c_results{
     border-radius: 10px;
 
@@ -49,10 +55,6 @@
     padding: 10px;
 }
 
-.red{
-    color: #F00;
-}
-
 .bt_togglemode{
     width: 50px;
     height: 50px;
@@ -65,4 +67,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.h2_name{
+    width: 100%;
+    text-align: left;
+}
+
+.img_carga{
+    width: 60px;
+    height: 60px;
+    margin-top: 50px;
 }

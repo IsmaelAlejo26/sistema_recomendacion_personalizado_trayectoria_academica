@@ -3,19 +3,33 @@
 }
 
 .font-32{
+    font-size: 2rem;
     font-size: 32px;
 }
 
+.font-28{
+    font-size: 1.75rem;
+    font-size: 28px;
+}
+
 .font-20{
+    font-size: 1.25rem;
     font-size: 20px;
 }
 
 .font-18{
+    font-size: 1.125rem;
     font-size: 18px;
 }
 
 .font-16{
+    font-size: 1rem;
     font-size: 16px;
+}
+
+.font-12{
+    font-size: 0.875rem;
+    font-size: 14px;
 }
 
 .no-margin{
