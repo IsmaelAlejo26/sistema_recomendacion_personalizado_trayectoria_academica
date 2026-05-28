@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from llm import get_recommendations
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
 app = FastAPI()
 
 app.add_middleware(
@@ -27,3 +30,6 @@ def recommendations(request: SubjectsRequest):
         raise HTTPException(status_code=400, detail="No se mandaron metas profesionales.")
     result = get_recommendations(request.subjects, request.skills, request.goals)
     return result
+
+# Al final, después de tus rutas
+app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
