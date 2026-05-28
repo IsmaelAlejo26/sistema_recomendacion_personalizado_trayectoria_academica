@@ -68,6 +68,6 @@ def get_recommendations(subjects: list[str], skills: list[str], goals: str) -> d
     )
 
     response_text = completion.choices[0].message.content
-    print("RESPUESTA DEL MODELO: ", response_text)
+    # print("RESPUESTA DEL MODELO: ", response_text)
     # Solicitud desde otro origen bloqueada: la política de mismo origen impide leer el recurso remoto en http://localhost:8000/recommendations (razón: falta la cabecera CORS 'Access-Control-Allow-Origin'). Código de estado: 500.
     return parse_response(response_text)
